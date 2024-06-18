@@ -1,4 +1,4 @@
-package com.hackaton.hackaton.model.data;
+package com.taller.taller03.model.data;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

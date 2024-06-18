@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import com.taller.taller03.model.Pasaje;
 import com.taller.taller03.model.Pasajero;
+import com.taller.taller03.model.data.DBGenerator;
 import com.taller.taller03.model.data.dao.PasajeroDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -20,7 +21,7 @@ public class registroPasajeroServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         try {
-            com.hackaton.hackaton.model.data.DBGenerator.iniciarBD("PasajerosDB");
+            DBGenerator.iniciarBD("PasajerosDB");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -33,7 +34,7 @@ public class registroPasajeroServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, java.io.IOException {
-        if (req.getParameter("nombre").length() == 0 || req.getParameter("contraseña").length() == 0 || req.getParameter("correo").length() == 0 || req.getParameter("numero").length() == 0 || req.getParameter("rut").length() == 0) {
+        if (req.getParameter("nombre").length() == 0 || req.getParameter("contraseña").length() == 0 || req.getParameter("documentoID").length() == 0 || req.getParameter("numero").length() == 0 || req.getParameter("correo").length() == 0) {
             RequestDispatcher respuesta = req.getRequestDispatcher("/registroErroneo.jsp");
             respuesta.forward(req, resp);
         } else {
@@ -62,7 +63,7 @@ public class registroPasajeroServlet extends HttpServlet {
     }
 
     public static boolean registrarPasajero(Pasajero pasajero) throws ClassNotFoundException {
-        DSLContext query= com.hackaton.hackaton.model.data.DBGenerator.conectarBD("PasajerosDB");
+        DSLContext query= DBGenerator.conectarBD("PasajerosDB");
         List<Pasajero> pasajeros = PasajeroDAO.obtenerPasajero(query,"documentoID",pasajero.getDocumentoID());
         if(pasajeros.size()!=0){
             return false;

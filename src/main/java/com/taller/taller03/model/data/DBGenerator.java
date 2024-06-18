@@ -1,4 +1,5 @@
-package com.hackaton.hackaton.model.data;
+package com.taller.taller03.model.data;
+
 import org.jooq.DSLContext;
 import org.jooq.DataType;
 import org.jooq.impl.DSL;
