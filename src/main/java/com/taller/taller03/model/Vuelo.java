@@ -1,12 +1,11 @@
 package com.taller.taller03.model;
 
 public class Vuelo {
-    
-    Aerolinea aerolinea;
-    String origen, destino, fechaSalida, fechaLlegada, horarioSalida, horarioLlegada, duracionVuelo, tipoAeronave, nAsientos;
+
+    String aerolinea, origen, destino, fechaSalida, fechaLlegada, horarioSalida, horarioLlegada, duracionVuelo, tipoAeronave, nAsientos;
     int nVuelo;
 
-    public Vuelo(Aerolinea aerolinea, String origen, String destino, String fechaSalida, String fechaLlegada, String horarioSalida, String horarioLlegada, String duracionVuelo, String tipoAeronave, String nAsientos, int nVuelo) {
+    public Vuelo(String aerolinea, String origen, String destino, String fechaSalida, String fechaLlegada, String horarioSalida, String horarioLlegada, String duracionVuelo, String tipoAeronave, String nAsientos, int nVuelo) {
         this.aerolinea = aerolinea;
         this.origen = origen;
         this.destino = destino;
@@ -20,11 +19,11 @@ public class Vuelo {
         this.nVuelo = nVuelo;
     }
 
-    public Aerolinea getAerolinea() {
+    public String getAerolinea() {
         return aerolinea;
     }
 
-    public void setAerolinea(Aerolinea aerolinea) {
+    public void setAerolinea(String aerolinea) {
         this.aerolinea = aerolinea;
     }
 

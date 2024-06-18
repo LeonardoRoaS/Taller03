@@ -52,13 +52,13 @@ public class PasajeroDAO {
     private static List obtenerListaPasajero(Result resultados){
         List<Pasajero> pasajeros= new ArrayList<>();
         for(int fila=0; fila<resultados.size();fila++){
-            String nombre = (String) resultados.getValue(0, "nombre");
-            String contraseña = (String) resultados.getValue(0, "contraseña");
-            String documentoID = (String) resultados.getValue(0, "documentoID");
-            String numero = (String) resultados.getValue(0, "numero");
-            String correo = (String) resultados.getValue(0, "correo");
-            String fechaNac= (String) resultados.getValue(0, "fechaNac");
-            String nacionalidad= (String) resultados.getValue(0, "nacionalidad");
+            String nombre = (String) resultados.getValue(fila,"nombre");
+            String contraseña = (String) resultados.getValue(fila, "contraseña");
+            String documentoID = (String) resultados.getValue(fila, "documentoID");
+            String numero = (String) resultados.getValue(fila, "numero");
+            String correo = (String) resultados.getValue(fila, "correo");
+            String fechaNac= (String) resultados.getValue(fila, "fechaNac");
+            String nacionalidad= (String) resultados.getValue(fila, "nacionalidad");
             pasajeros.add(new Pasajero(nombre, contraseña, documentoID, numero, correo,fechaNac,nacionalidad));
         }
         return pasajeros;

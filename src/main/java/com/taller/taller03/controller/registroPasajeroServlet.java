@@ -21,7 +21,7 @@ public class registroPasajeroServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         try {
-            DBGenerator.iniciarBD("PasajerosDB");
+            DBGenerator.iniciarBD("FlyEasyDB");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -63,7 +63,7 @@ public class registroPasajeroServlet extends HttpServlet {
     }
 
     public static boolean registrarPasajero(Pasajero pasajero) throws ClassNotFoundException {
-        DSLContext query= DBGenerator.conectarBD("PasajerosDB");
+        DSLContext query= DBGenerator.conectarBD("FlyEasyDB");
         List<Pasajero> pasajeros = PasajeroDAO.obtenerPasajero(query,"documentoID",pasajero.getDocumentoID());
         if(pasajeros.size()!=0){
             return false;

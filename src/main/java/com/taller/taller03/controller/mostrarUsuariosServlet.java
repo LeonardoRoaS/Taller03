@@ -21,7 +21,7 @@ public class mostrarUsuariosServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         try {
-            DBGenerator.iniciarBD("PasajerosDB");
+            DBGenerator.iniciarBD("FlyEasyDB");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -40,7 +40,7 @@ public class mostrarUsuariosServlet extends HttpServlet {
 
     private List agregarUsuarios() throws ClassNotFoundException {
         List<Pasajero> pasajeros = new ArrayList<>();
-        pasajeros = PasajeroDAO.obtenerPasajeros(DBGenerator.conectarBD("PasajerosDB"));
+        pasajeros = PasajeroDAO.obtenerPasajeros(DBGenerator.conectarBD("FlyEasyDB"));
         return pasajeros;
     }
 

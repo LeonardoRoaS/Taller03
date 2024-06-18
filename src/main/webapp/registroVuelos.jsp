@@ -12,7 +12,7 @@
     <title>Creacion de Vuelos</title>
 </head>
 <h1 class="encabezado">Registro de pasajeros</h1>
-<form action="registroPasajero" method="post">
+<form action="registroVuelos" method="post">
     <div class="centrado">
         <label>Aerolinea:</label>
         <input type="text" name="aerolinea" class="campoTexto">

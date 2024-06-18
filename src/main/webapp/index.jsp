@@ -8,6 +8,12 @@
 <body>
 <h1 class="encabezado">Menu principal</h1>
 <br/>
+<form action="registroVuelos" method="get">
+    <div class="centrado">
+        <input type="submit" value="Registrar Vuelos" class="boton">
+    </div>
+</form>
+
 <form action="registroPasajero" method="get">
     <div class="centrado">
         <input type="submit" value="Registrar Pasajero" class="boton">

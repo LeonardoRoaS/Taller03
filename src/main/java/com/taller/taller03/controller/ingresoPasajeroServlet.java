@@ -35,7 +35,7 @@ public class ingresoPasajeroServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         try {
-            DBGenerator.iniciarBD("PasajerosDB");
+            DBGenerator.iniciarBD("FlyEasyDB");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -75,7 +75,7 @@ public class ingresoPasajeroServlet extends HttpServlet {
         boolean isAuthenticated = false;
 
         try {
-            connection = DBConnector.connection("PasajerosDB", "root", "");
+            connection = DBConnector.connection("FlyEasyDB", "root", "");
             String query = "SELECT contraseña FROM Pasajero WHERE correo = ?";
             statement = connection.prepareStatement(query);
             statement.setString(1, correo);
@@ -110,7 +110,7 @@ public class ingresoPasajeroServlet extends HttpServlet {
 
     public static Pasajero buscarUsuarioBD(String documentoID) {
         try {
-            DSLContext query = DBGenerator.conectarBD("PasajerosDB");
+            DSLContext query = DBGenerator.conectarBD("FlyEasyDB");
             Pasajero pasajero = PasajeroDAO.obtenerPasajeroPorDocumentoID(query, documentoID);
             return pasajero;
         } catch (Exception e) {
