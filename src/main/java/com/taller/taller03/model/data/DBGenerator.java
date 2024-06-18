@@ -17,6 +17,7 @@ public class DBGenerator {
         crearBaseDato(create,nombreBD);
         create = actualizarConexion(connection,nombreBD);
         crearTablaPasajero(create);
+        crearTablaVuelo(create);
         DBConnector.closeConnection();
 
     }
@@ -46,6 +47,21 @@ public class DBGenerator {
                 .column("fechaNac",VARCHAR(100))
                 .column("nacionalidad",VARCHAR(100))
                 .constraint(primaryKey("documentoID")).execute();
+
+    }private static void crearTablaVuelo(DSLContext create){
+        create.createTableIfNotExists("Vuelo")
+                .column("Aerolinea",VARCHAR(100))
+                .column("origen",VARCHAR(100))
+                .column("destino",VARCHAR(100))
+                .column("fechaSalida",VARCHAR(100))
+                .column("fechaLlegada",VARCHAR(100))
+                .column("horarioSalida",VARCHAR(100))
+                .column("horarioLlegada",VARCHAR(100))
+                .column("duracionVuelo",VARCHAR(100))
+                .column("tipoAeronave",VARCHAR(100))
+                .column("nAsientos",VARCHAR(100))
+                .column("nVuelo",VARCHAR(100))
+                .constraint(primaryKey("nVuelo")).execute();
 
     }
 
